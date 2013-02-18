@@ -1,0 +1,68 @@
+nav ul li {
+float:left;
+list-style:none;
+display:block;
+margin-left:0.618cm;
+border-style:groove;
+border-radius:6px;
+background:WhiteSmoke;
+}
+
+nav ul li:hover {
+background:MistyRose;
+}
+
+#search {
+float:right;
+margin-right:0.618cm;
+}
+
+#welcome {
+clear:both;
+float:left;
+margin-right:0.3819cm;
+margin-left:0.3819cm;
+width:38.1924%;
+}
+
+#welcome ul {
+list-style:none;
+border-style:solid;
+border-color:LightSlateGray;
+border-radius:8px;
+}
+
+#announcement {
+display:block;
+float:left;
+width:56%;
+}
+
+#announcement ul {
+list-style:none;
+border-style:solid;
+border-color:LightSlateGray;
+border-radius:8px;
+}
+
+#content ul {
+clear:both;
+float:left;
+list-style:none;
+}
+
+#content ul li {
+border-style:solid;
+border-color:LightSlateGray;
+border-radius:8px;
+width:auto;
+height:auto;
+display:table;
+}
+
+#footer {
+    bottom:0px
+    clear:both;
+    font-size:11px;
+    text-align:center;
+}

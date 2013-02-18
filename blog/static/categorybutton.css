@@ -1,0 +1,18 @@
+#categorylist {
+border-style:groove;
+border-radius:8px;
+background: WhiteSmoke;
+z-index:110;
+width:220px;
+margin-top:8px;
+float:left;
+position:absolute;
+}
+
+#category {
+display:block;
+margin-right:0.3cm;
+float:left;
+position:relative;
+z-index:120;
+}
