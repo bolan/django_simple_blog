@@ -1,0 +1,1 @@
+This is a simple blog base on Django. It uses the default Django admin page to manage the web contents. It has a simple search function and comment function.
