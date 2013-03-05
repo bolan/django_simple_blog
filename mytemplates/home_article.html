@@ -1,0 +1,51 @@
+<head>
+    <title>Wealth & Freedom - {{ category.name }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}home.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div id=header><h1>Wealth & Freedom</h1></div>
+
+<nav id="nav">
+    <ul>
+        <li>
+            <a class="loadin" href="/">Welcome</a>
+        </li>
+        {% for category in nav_bar %}
+        <li>
+            <a class="loadin" href="/{{ category.id }}/">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+        <li>
+            <a href="/blog/">Blog</a>
+        </li>
+    </ul>
+</nav>
+
+<div id="search"></div>
+
+<br />
+<div id="wrap">
+<div id="content">
+<ul>
+{% if home_article %}
+    {% for article in home_article %}
+        <h3>{{ article.title }}</h3>
+        <li>{{ article.content|safe|linebreaks }}</li>
+    {% endfor %}
+{% else %}
+<li>Sorry, there is not any content right now.</li>
+{% endif %}
+</ul>
+</div>
+<div id="footer">
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Wealth & Freedom</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Bo Lan</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</div>
+</div>
+</body>
+
+<script>
+$("#search").load("/blog/search/");
+</script>
