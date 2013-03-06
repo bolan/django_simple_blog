@@ -1,3 +1,8 @@
+body {
+background-image:url('background_singlelayer.jpg');
+background-repeat:no-repeat;
+}
+
 #main {
     display:block;
     clear:both;
@@ -20,10 +25,10 @@
 }
 
 #sidebar {
+    width:26%;
     clear:right;
     display:block;
-    width:28%;
-    float:right;
+    float:left;
 }
 
 #footer {
