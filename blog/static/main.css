@@ -31,6 +31,11 @@ background-repeat:no-repeat;
     float:left;
 }
 
+.pagination {
+    clear:both;
+    text-align:center;
+}
+
 #footer {
     clear:both;
     font-size:11px;

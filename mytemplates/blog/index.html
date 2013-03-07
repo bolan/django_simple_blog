@@ -11,9 +11,9 @@
 <div id="nav"></div>
 <div id="search"></div>
 <div id="main">
-{% if latest_article_list %}
+{% if articles %}
     <ul>
-        {% for article in latest_article_list %}
+        {% for article in articles %}
             <h3>{{ article.title }}</h3>
             {{ article.content|safe|linebreaks|truncatewords:100 }} <a href="/blog/{{ article.id }}/">[read more]</a>
             <br />
@@ -34,6 +34,25 @@
 {% endblock %}
 </div>
 <div id="sidebar"></div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if articles.has_previous %}
+            <a href="?page={{ articles.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ articles.number }} of {{articles.paginator.num_pages }}.
+        </span>
+
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div> 
+
+<br />
+
 <div id="footer"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Wealth & Freedom</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Bo Lan</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</div>
 </div>
 </body>

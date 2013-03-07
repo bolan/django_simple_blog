@@ -7,12 +7,25 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.forms.models import inlineformset_factory
 from django.views.generic.dates import YearArchiveView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-    latest_article_list = Article.objects.all().order_by('-pub_date')[:20]
+    latest_article_list = Article.objects.all().order_by('-pub_date')
+    paginator = Paginator(latest_article_list, 20)
+
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        articles = paginator.page(1)
+    except EmptyPage:
+        # If page is out of rage, deliver the last page of results.
+        articles = paginator.page(paginator.num_pages)
+
     t = loader.get_template('blog/index.html')
     c = RequestContext(request,{
-        'latest_article_list': latest_article_list,
+        'articles': articles,
     })
     return HttpResponse(t.render(c))
 
