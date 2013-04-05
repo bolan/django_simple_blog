@@ -11,42 +11,21 @@
 <div id="nav"></div>
 <div id="search"></div>
 <div id="main">
-{% if articles %}
-    <ul>
-        {% for article in articles %}
-            <h3>{{ article.title }}</h3>
-            {{ article.content|safe|linebreaks|truncatewords:100 }} <a href="/blog/{{ article.id }}/">[read more]</a>
-            <br />
-            <br />
-            {% if article.attachment_set.all %}
-                Notice: This article contains attachments. <a href='/blog/attachment/{{ article.id }}'>[Get Attachments]</a>
-            {% endif %}
-            <font size="2"><p align = "right">Edited by {{ article.author }} at {{ article.pub_date }}</p></font>
-            <p><hr>
+{% if attachment_in_article %}
+    <ul><h3>Attachment list of <i>{{ article.title }}</i></h3>
+        {% for attachment in attachment_in_article %}
+            <li>
+            <a href='{{ MEDIA_URL }}{{ attachment.attachments }}'>{{ attachment.filename }}</a>
+            </li>
         {% endfor %}
     </ul>
 {% else %} 
-    <h3>There is not any article.</h3>
+    <h3>There is not any attachment in this article.</h3>
 {% endif %}
 {% endblock %}
 </div>
+
 <div id="sidebar"></div>
-
-<div class="pagination">
-    <span class="step-links">
-        {% if articles.has_previous %}
-            <a href="?page={{ articles.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ articles.number }} of {{articles.paginator.num_pages }}.
-        </span>
-
-        {% if articles.has_next %}
-            <a href="?page={{ articles.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div> 
 
 <br />
 
