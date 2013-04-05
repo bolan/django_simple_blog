@@ -1,4 +1,4 @@
-from blog.models import Article, Category, Comment
+from blog.models import Article, Category, Comment, Attachment
 from django.template import RequestContext, loader
 from django.http import HttpResponse
 import datetime
@@ -100,6 +100,20 @@ def detail(request, article_id):
         'article':article,
         "formset": formset,
         'comment_in_article': comment_in_article,
+    })
+    return HttpResponse(t.render(c))
+
+def attachment(request, article_id):
+    try:
+        article = Article.objects.get(pk=article_id) 
+    except Article.DoesNotExist:
+        raise Http404
+    attachment_in_article = Attachment.objects.filter(article=article_id)
+
+    t = loader.get_template('blog/attachment.html')
+    c = RequestContext(request,{
+        'article':article,
+        'attachment_in_article':attachment_in_article,
     })
     return HttpResponse(t.render(c))
 
