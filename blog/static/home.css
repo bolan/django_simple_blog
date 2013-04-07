@@ -4,8 +4,8 @@ background-repeat:no-repeat;
 }
 
 #content img {
-max-width:400px;
-max-height:400px;
+max-width:480px;
+max-height:480px;
 }
 
 nav ul li {
@@ -71,6 +71,7 @@ border-color:LightSlateGray;
 border-radius:8px;
 width:auto;
 height:auto;
+display:table;
 }
 
 #footer {
@@ -80,7 +81,7 @@ height:auto;
 }
 
 
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), {
 
 body {
 background-image:url('background_singlelayer.jpg');
@@ -88,8 +89,8 @@ background-repeat:no-repeat;
 }
 
 #content img {
-max-width:400px;
-max-height:400px;
+max-width:240px;
+max-height:320px;
 }
 
 #header h1 {
