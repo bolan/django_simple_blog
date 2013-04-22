@@ -6,7 +6,7 @@ Introduce
 ---------
 This is a simple blog base on Django. It uses the default Django admin page to manage the web contents. It has search, comment, and flatpage function.
 
-This simple blog application is not only for a blog style website, but also for a regular web of any kinds of organizations. It contains a flat home page, which can be used for showing your basic static information, such as contacts, about, services, and products. Every article and content on your blog can be put onto the flat home page depended on your need. If you do not like the word "blog" on a professional website, it can be simply change to something like "news" or "updates".
+This simple blog application is not only for a blog style website, but also for a regular web of any kinds of organizations. It contains a flat home page, which can be used for showing your basic static information, such as contacts, about, services, and products. Every article and content on your blog can be put onto the flat home page depended on your need. If you do not like the word "blog" on a professional website, it can be simply changed to something like "news" or "updates".
 
 More detailed documentation will be included in the "docs" directory.
 
