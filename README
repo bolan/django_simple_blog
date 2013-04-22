@@ -1,1 +1,33 @@
-This is a simple blog base on Django. It uses the default Django admin page to manage the web contents. It has a simple search function and comment function.
+==================
+Simple Django Blog
+==================
+
+Introduce
+---------
+This is a simple blog base on Django. It uses the default Django admin page to manage the web contents. It has search, comment, and flatpage function.
+
+This simple blog application is not only for a blog style website, but also for a regular web of any kinds of organizations. It contains a flat home page, which can be used for showing your basic static information, such as contacts, about, services, and products. Every article and content on your blog can be put onto the flat home page depended on your need. If you do not like the word "blog" on a professional website, it can be simply change to something like "news" or "updates".
+
+More detailed documentation will be included in the "docs" directory.
+
+Install
+-------
+1. Add "blog" to your INSTALLED_APPS setting like this::
+
+      INSTALLED_APPS = (
+          ...
+          'blog',
+      )
+
+2. Include the blog URLconf in your project urls.py like this::
+
+      url(r'^blog/', include('blog.urls')),
+
+3. Run `python manage.py syncdb` to create the polls models.
+
+4. Start the development server and visit http://127.0.0.1:8000/admin/
+  to create a poll (you'll need the Admin app enabled).
+
+5. Visit http://127.0.0.1:8000/polls/ to participate in the poll.
+
+6. For more general setup tutorials of Django, such as database, admin page, please visit: https://docs.djangoproject.com/en/1.5/
