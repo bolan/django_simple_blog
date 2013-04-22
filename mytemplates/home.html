@@ -40,7 +40,7 @@
     <h3>Announcements</h3>
     <ul>
     {% for article in home_announce %}
-        <li><b>{{ article.title }}</b></li>
+        <a id="title_link" href="/blog/{{ article.id }}"><li><b>{{ article.title }}</b></li></a>
         <span class="content">{{ article.content|safe|linebreaks|truncatechars:200 }}<a href="/blog/{{ article.id }}">[read more]</a> -- <i><font size="2">{{article.pub_date}}</font></i></span>
         <hr>
     {% endfor %}

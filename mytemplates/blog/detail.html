@@ -30,7 +30,7 @@
     <h4>Comments: </h4>
     {% if article.comment_set.all %}
         {% for comment in comment_in_article %}
-        <p>{{ comment.comment|safe|linebreaks }}</p>
+        <p>{{ comment.comment|linebreaks }}</p>
         <p>&nbsp &nbsp &nbsp &nbsp -- {{ comment.name }} &nbsp &nbsp &nbsp &nbsp <font size="2">{{ comment.pub_date }}</font></p>
         <p><hr></p>
         {% endfor %}

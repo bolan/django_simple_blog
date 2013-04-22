@@ -3,14 +3,29 @@ background-image:url('background_singlelayer.jpg');
 background-repeat:no-repeat;
 }
 
+#title_link {
+    color: #000000;
+    text-decoration: none;
+}
+
+#title_link:hover {
+     color:#A9A9A9; 
+     text-decoration:none; 
+     cursor:pointer; 
+}
+
 #main {
-    display:block;
     clear:both;
     width:70%;
     float:left;
     border-right:groove;
     border-color:Grey;
     margin-right:0.3819cm;
+}
+
+#main img {
+max-height:480px;
+max-width:480px;
 }
 
 #nav {
@@ -25,10 +40,9 @@ background-repeat:no-repeat;
 }
 
 #sidebar {
-    width:26%;
     clear:right;
-    display:block;
-    float:left;
+    width:27%;
+    float:right;
 }
 
 .pagination {

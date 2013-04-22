@@ -14,8 +14,8 @@
 {% if articles %}
     <ul>
         {% for article in articles %}
-            <h3>{{ article.title }}</h3>
-            {{ article.content|safe|linebreaks|truncatewords:100 }} <a href="/blog/{{ article.id }}/">[read more]</a>
+            <a id="title_link" href="/blog/{{ article.id }}/"><h3>{{ article.title }}</h3></a>
+            <label>{{ article.content|safe|linebreaks|truncatechars:"618" }}</label> <label><a href="/blog/{{ article.id }}/">[read more]</a></label>
             <br />
             <br />
             {% if article.attachment_set.all %}

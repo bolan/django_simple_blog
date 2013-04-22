@@ -8,6 +8,17 @@ max-width:480px;
 max-height:480px;
 }
 
+#title_link {
+    color: #000000;
+    text-decoration: none;
+}
+
+#title_link:hover {
+     color:#A9A9A9; 
+     text-decoration:none; 
+     cursor:pointer; 
+}
+
 nav ul li {
 float:left;
 list-style:none;
