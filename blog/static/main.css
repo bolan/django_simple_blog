@@ -23,6 +23,11 @@ background-repeat:no-repeat;
     margin-right:0.3819cm;
 }
 
+.article video {
+max-height:480px;
+max-width:480px;
+}
+
 #main img {
 max-height:480px;
 max-width:480px;

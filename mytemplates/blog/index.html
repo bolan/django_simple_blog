@@ -1,7 +1,8 @@
 <head>
     <title>Wealth & Freedom Blog</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery.expander.js"></script>
 </head>
 
 <body>
@@ -15,12 +16,13 @@
     <ul>
         {% for article in articles %}
             <a id="title_link" href="/blog/{{ article.id }}/"><h3>{{ article.title }}</h3></a>
-            <label>{{ article.content|safe|linebreaks|truncatechars:"618" }}</label> <label><a href="/blog/{{ article.id }}/">[read more]</a></label>
-            <br />
+            <div class="article">
+            {{ article.content|safe|linebreaks }}
             <br />
             {% if article.attachment_set.all %}
                 Notice: This article contains attachments. <a href='/blog/attachment/{{ article.id }}'>[Get Attachments]</a>
             {% endif %}
+            </div>
             <font size="2"><p align = "right">Edited by {{ article.author }} at {{ article.pub_date }}</p></font>
             <p><hr>
         {% endfor %}
@@ -58,4 +60,18 @@
 $("#sidebar").load("/blog/archive_index/");
 $("#nav").load("/blog/category/");
 $("#search").load("/blog/search/");
+</script>
+
+<script>
+$.expander.defaults.expandText = '[Read more]';
+$.expander.defaults.userCollapseText = '[Read less]';
+
+$(document).ready(function() {
+    $('div.article').expander({
+        slicePoint: 618,
+        onCollapse: function () {
+           $('body').scrollTop($(this).prevAll('a#title_link').first().offset().top);
+        }
+    });
+});
 </script>
