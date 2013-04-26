@@ -38,7 +38,7 @@
     <p><hr></p>
     {% endif %}
     <table>
-    <form method="post" action="">{% csrf_token %}
+    <form name="comment" method="post" action="">{% csrf_token %}
         {{ formset }}
     </table>
         <input type="submit" value="Submit" />
