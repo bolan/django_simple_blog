@@ -22,24 +22,26 @@
     {% endfor %}
     {% endif %}
     <br />
+    <br />
     <font size="2"><a href="/blog/">Return to blog index page</a></font>
     <font size="2"><p align = "right">Edited by {{ article.author }} at {{ article.pub_date }}</p></font>
 </ul>
-<ul id="comment">
+<ul id="comment_list">
     <h4>Comments: </h4>
     {% if article.comment_set.all %}
         {% for comment in comment_in_article %}
         <p>{{ comment.comment|linebreaks }}</p>
         <p>&nbsp &nbsp &nbsp &nbsp -- {{ comment.name }} &nbsp &nbsp &nbsp &nbsp <font size="2">{{ comment.pub_date }}</font></p>
-        <p><hr></p>
+        <br />
         {% endfor %}
     {% else %}
     <p>There is not any comment.</p>
     <p><hr></p>
     {% endif %}
-    <table>
+    <table id="comment">
     <form name="comment" method="post" action="">{% csrf_token %}
-        {{ formset }}
+        {{ comment_formset }}
+        {{ captcha_form }}
     </table>
         <input type="submit" value="Submit" />
     </form>

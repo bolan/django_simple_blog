@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="hover_collapse.svg">
+   sodipodi:docname="hover_collapse.svg"
+   inkscape:export-filename="/home/bo/mysite/blog/static/hover_collapse.jpeg.png"
+   inkscape:export-xdpi="24.440643"
+   inkscape:export-ydpi="24.440643">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35000001"
-     inkscape:cx="991.1854"
-     inkscape:cy="248.54419"
+     inkscape:zoom="0.49497476"
+     inkscape:cx="660.85351"
+     inkscape:cy="305.44693"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

@@ -1,13 +1,16 @@
+import datetime
+
 from blog.models import Article, Category, Comment, Attachment
 from django.template import RequestContext, loader
 from django.http import HttpResponse
-import datetime
 from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.forms.models import inlineformset_factory
 from django.views.generic.dates import YearArchiveView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from captcha.fields import CaptchaField
+from django import forms
 
 def index(request):
     latest_article_list = Article.objects.all().order_by('-pub_date')
@@ -77,6 +80,9 @@ def category_article(request, category_id):
     })
     return HttpResponse(t.render(c))
 
+class CaptchaForm(forms.Form):
+    captcha = CaptchaField()
+
 def detail(request, article_id):
     try:
         article = Article.objects.get(pk=article_id)
@@ -86,20 +92,24 @@ def detail(request, article_id):
     comment_in_article = Comment.objects.filter(article=article_id).order_by('-pub_date')[:20]
     CommentFormSet = inlineformset_factory(Article, Comment, extra=1, can_delete=False)
     if request.method == 'POST':
-        formset = CommentFormSet(request.POST, request.FILES, instance=article)
-        if formset.is_valid():
-            formset.save()
-            formset.cleaned_data
+        comment_formset = CommentFormSet(request.POST, request.FILES, instance=article)
+        captcha_form = CaptchaForm(request.POST)
+        if comment_formset.is_valid() and captcha_form.is_valid():
+            human = True
+            comment_formset.save()
+            comment_formset.cleaned_data
             return HttpResponseRedirect('')
             
     else:
-        formset = CommentFormSet()
+        captcha_form = CaptchaForm()
+        comment_formset = CommentFormSet()
 
     t = loader.get_template('blog/detail.html')
     c = RequestContext(request,{
         'article':article,
-        "formset": formset,
+        'comment_formset': comment_formset,
         'comment_in_article': comment_in_article,
+        'captcha_form': captcha_form,
     })
     return HttpResponse(t.render(c))
 

@@ -10,6 +10,12 @@ This simple blog application is not only for a blog style website, but also for 
 
 More detailed documentation will be included in the "docs" directory.
 
+Dependencies
+------------
+Django (http://djangoproject.com)
+django-simple-captcha (https://github.com/mbi/django-simple-captcha)
+
+
 Install
 -------
 1. Add "blog" to your INSTALLED_APPS setting like this::
@@ -17,16 +23,18 @@ Install
       INSTALLED_APPS = (
           ...
           'blog',
+          'captcha',
       )
 
 2. Include the blog URLconf in your project urls.py like this::
 
       url(r'^blog/', include('blog.urls')),
+      url(r'^captcha/', include('captcha.urls')),
 
 3. Run `python manage.py syncdb` to create the blog models.
 
 4. Start the development server and visit http://127.0.0.1:8000/admin/
-  to create a poll (you'll need the Admin app enabled).
+  to create an article. (you'll need the Admin app enabled).
 
 5. Visit http://127.0.0.1:8000/blog/ to visit your blog.
 

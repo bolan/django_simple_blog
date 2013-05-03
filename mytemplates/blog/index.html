@@ -25,9 +25,10 @@
             <br />
             <h4>Comments:</h4>
             {% if article.comment_set.all %}
-                {% for comment in article.comment_set.all %}
+                {% for comment in article.comment_set.all|dictsortreversed:"pub_date"|slice:"16" %}
                     <p>{{ comment.comment|linebreaks }}</p>
                     <p>&nbsp &nbsp &nbsp &nbsp -- {{ comment.name }} &nbsp &nbsp &nbsp &nbsp <font size="2">{{ comment.pub_date }}</font></p>
+                    <br />
                 {% endfor %}
             {% else %}
                 There is not any comment.

@@ -29,22 +29,26 @@
 <br />
 <div id="wrap">
 <div id="welcome"> 
+    <ul class="welcome">
     <h3>Welcome!</h3>
-    <ul>
+    <div class="article">
     {% for article in home_welcome %}
         <li>{{ article.content|safe|linebreaks }}</li>
     {% endfor %} 
+    </div>
     </ul>
 </div>
 
 <div id="announcement">
+    <ul class="announcement">
     <h3>Announcements</h3>
-    <ul>
+    <div class="article">
     {% for article in home_announce %}
         <a id="title_link" href="/blog/{{ article.id }}"><li><b>{{ article.title }}</b></li></a>
         <span class="content">{{ article.content|safe|linebreaks|truncatechars:200 }}<a href="/blog/{{ article.id }}">[read more]</a> -- <i><font size="2">{{article.pub_date}}</font></i></span>
         <hr>
     {% endfor %}
+    </div>
     </ul>
 </div>
 

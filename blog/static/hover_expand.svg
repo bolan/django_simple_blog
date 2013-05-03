@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="menu.svg">
+   sodipodi:docname="hover_expand.svg"
+   inkscape:export-filename="/home/bo/mysite/blog/static/hover_expand.png"
+   inkscape:export-xdpi="24.423239"
+   inkscape:export-ydpi="24.423239">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748738"
-     inkscape:cx="-67.516816"
-     inkscape:cy="254.20391"
+     inkscape:zoom="0.35000001"
+     inkscape:cx="720.21818"
+     inkscape:cy="323.51049"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"

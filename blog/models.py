@@ -6,6 +6,7 @@ from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
+from captcha.fields import CaptchaField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
