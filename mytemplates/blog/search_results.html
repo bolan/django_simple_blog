@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<html>
 <head>
     <title>Wealth & Freedom Blog</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css" />
@@ -24,6 +25,9 @@
 {% else %}
     <p />No article matched your search criteria.
 {% endif %}
+    <br />
+    <br />
+    <font size="2"><a href="/blog/">Return to blog index page</a></font>
 </div>
 
 <div id="sidebar"></div>
@@ -36,3 +40,4 @@ $("#sidebar").load("/blog/archive_index/");
 $("#nav").load("/blog/category/");
 $("#search").load("/blog/search/");
 </script>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<html>
 <head>
     <title>Wealth & Freedom Blog</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css" />
@@ -80,12 +81,13 @@ $("#search").load("/blog/search/");
 $.expander.defaults.expandText = '[Read more]';
 $.expander.defaults.userCollapseText = '[Read less]';
 
-$(document).ready(function() {
+$(document).ready(function(){
     $('div.article').expander({
         slicePoint: 618,
-        onCollapse: function () {
-           $('body').scrollTop($(this).prevAll('a#title_link').first().offset().top);
+        onCollapse: function(){
+           $('body, html').scrollTop($(this).prevAll('a#title_link').first().offset().top);
         }
     });
 });
 </script>
+</html>
