@@ -5,6 +5,7 @@
     <title>Wealth & Freedom</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}home.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery.expander.js"></script>
     <meta name="viewport" content="width=device-width" />
 </head>
 
@@ -13,17 +14,17 @@
 
 <nav id="nav">
     <ul>
-        <li>
-            <a class="loadin" href="/">Welcome</a>
-        </li>
+        <a class="loadin" href="/"><li>
+            Welcome
+        </li></a>
         {% for category in nav_bar %}
-        <li>
-            <a class="loadin" href="/{{ category.id }}/">{{ category.name }}</a>
-        </li>
+        <a class="loadin" href="/{{ category.id }}/"><li>
+            {{ category.name }}
+        </li></a>
         {% endfor %}
-        <li>
-            <a href="/blog/">Blog</a>
-        </li>
+        <a href="/blog/"><li>
+            Blog
+        </li></a>
     </ul>
 </nav>
 
@@ -47,9 +48,9 @@
     <h3>Announcements</h3>
     <div class="article">
     {% for article in home_announce %}
-        <a id="title_link" href="/blog/{{ article.id }}"><li><b>{{ article.title }}</b></li></a>
-        <span class="content">{{ article.content|safe|linebreaks|truncatechars:200 }}<a href="/blog/{{ article.id }}">[read more]</a> -- <i><font size="2">{{article.pub_date}}</font></i></span>
-        <hr>
+            <a id="title_link" href="/blog/{{ article.id }}"><b>{{ article.title }}</b></a><i style="float:right;">--<font size="2">{{article.pub_date}}</font></i>
+            <span class="content slice_each_article">{{ article.content|safe|linebreaks }}</span>
+    <hr>
     {% endfor %}
     </div>
     </ul>
@@ -63,5 +64,19 @@
 
 <script>
 $("#search").load("/blog/search/");
+</script>
+
+<script>
+$.expander.defaults.expandText = '[Read more]';
+$.expander.defaults.userCollapseText = '[Read less]';
+
+$(document).ready(function(){
+    $('.slice_each_article').expander({
+        slicePoint: 200,
+        onCollapse: function(){
+           $('body, html').scrollTop($(this).prevAll('a#title_link').first().offset().top);
+        }
+    });
+});
 </script>
 </html>

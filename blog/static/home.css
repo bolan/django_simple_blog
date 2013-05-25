@@ -33,10 +33,13 @@ nav ul li {
 float:left;
 list-style:none;
 display:block;
+width:2.5cm;
 margin-left:0.618cm;
 border-style:groove;
 border-radius:6px;
 background:WhiteSmoke;
+text-align:center;
+font-family:sans-serif;
 }
 
 nav ul li:hover {

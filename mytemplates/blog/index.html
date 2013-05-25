@@ -6,11 +6,11 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}jquery.expander.js"></script>
+
 </head>
 
 <body>
 <div id="wrap">
-{% block content %}
 <div id="header"><h2>Wealth & Freedom Blog</h2></div>
 <div id="nav"></div>
 <div id="search"></div>
@@ -45,7 +45,6 @@
 {% else %} 
     <h3>There is not any article.</h3>
 {% endif %}
-{% endblock %}
 </div>
 <div id="sidebar"></div>
 

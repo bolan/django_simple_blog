@@ -70,11 +70,23 @@ def category(request):
 def category_article(request, category_id):
     category = Category.objects.get(pk=category_id)
     try:
-        article_by_category = Article.objects.filter(category=category_id).order_by('-pub_date')[:20]
+        article_by_category = Article.objects.filter(category=category_id).order_by('-pub_date')
     except Article.DoesNotExist:
         raise Http404
+
+    paginator = Paginator(article_by_category, 20)
+    page = request.GET.get('page')
+
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+
     t = loader.get_template('blog/category_article.html')
     c = RequestContext(request, {
+        'articles': articles,
         'article_by_category': article_by_category,
         'category':category,
     })

@@ -14,17 +14,17 @@
 
 <nav id="nav">
     <ul>
-        <li>
-            <a class="loadin" href="/">Welcome</a>
-        </li>
+        <a class="loadin" href="/"><li>
+            Welcome
+        </li></a>
         {% for category in nav_bar %}
-        <li>
-            <a class="loadin" href="/{{ category.id }}/">{{ category.name }}</a>
-        </li>
+        <a class="loadin" href="/{{ category.id }}/"><li>
+            {{ category.name }}
+        </li></a>
         {% endfor %}
-        <li>
-            <a href="/blog/">Blog</a>
-        </li>
+        <a href="/blog/"><li>
+            Blog
+        </li></a>
     </ul>
 </nav>
 
